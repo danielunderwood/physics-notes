@@ -7,6 +7,8 @@ script:
 - pdflatex -interaction=nonstopmode -halt-on-error -output-directory _build main.tex
 deploy:
   provider: releases
+  api_key:
+    secure: "PluDYKMapApB4oEylTDPDjrOAFBHliIolv32it3jMFuJNnX/nEGxEj7NyTG4SBP+6Zo9V08nyeJaWsohkqAhZpIaFEseOa2XNNdDizXEIuxboGfB74uPT4jolSKNlhtQY++1Yp1/wtcGBNse0KCftFwl4D+rPAXfl0akaI8LtW48UY/C5wJjNNZqH2dm2qMHVpwi6PXa42kBJX2RgqVIh81vNeM1C0EPMbUqFA8i0JBbzdeQiGXwzg5dUSl9xMfozdmgTUxZxmJXwA/POCW0cmjarfUERUGhxp/UzkX2SJaMd+pCWDvhmwRtM+rqaWZjUhjgVtHS9TNeK5PZ0LB6+mdHGTSZi/ngL11cambrZVnGBrcVOkc/PEnRfRL03wGxsaNehwPcE/SBoeQKLmrZZ/MCSLhxNC+5QkCW9xaJOhJWfl1zfxdXcW9lWjnMQueJHyMYUN6zf2QMnlII9SAkUbakMCNfkcT3hhe92dmiJKrU8RmD6sIv6I0cG3kEfwOafVKkpG9I5ZsM71gBgk2EPrma0Mp1IH8yvLjVeocsoMiMLKzx7uCpmbVpSRQdeQU1rC9nWZ/Yys8t6hydzLaVCzOfkgsbs97UjF30jxK3ozwz7TbXy/qWD1+spNyklA8A/5O+64foh28U3gAWsGr6dwTuw4rJzivHjB3x2UpeXKQ="
   file:
   - _build/main.pdf
   skip_cleanup: true
