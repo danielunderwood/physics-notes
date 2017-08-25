@@ -1,0 +1,35 @@
+\documentclass[10pt,a4paper]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{subfiles}
+\usepackage[toc,page]{appendix}
+\usepackage{cleveref}
+\usepackage{tikz}
+\author{Daniel Underwood}
+\title{Physics Notes}
+
+\renewcommand{\vec}[1]{\mathbf{#1}}
+\newcommand{\unit}[1]{\mathbf{\hat{#1}}}
+
+\begin{document}
+\maketitle
+
+\topskip0pt
+\vspace*{\fill}
+These are my notes from my college physics courses. I am recording these to review my
+knowledge and identify where any misunderstandings are; I plan to correct those
+misunderstandings during the writing of these notes. Many of the notes are reorganized
+and slightly changed compared to the actual courses. I will try to give references where
+possible. Please let me know if there are any remaining misunderstandings or errors.
+
+Each chapter will be a topic that is hopefully largely self-contained. The chapters will
+consist of notes on various topics, followed by appendices that will contain principal
+formulas, derivations, and examples.
+\vspace*{\fill}
+
+\tableofcontents
+\newpage
+\subfile{mechanics}
+\end{document}
