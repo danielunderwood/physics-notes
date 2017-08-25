@@ -4,8 +4,7 @@ before_install:
 - sudo apt-get -qq update && sudo apt-get install -y --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra dvipng texlive-latex-recommended latexmk texlive-pictures pgf
 script:
 - mkdir _build
-- cd _build
-- latexmk -pdf
+- latexmk -pdf -jobname=./_build/main main.tex
 deploy:
   provider: releases
   api_key:
