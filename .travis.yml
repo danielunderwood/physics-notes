@@ -10,5 +10,3 @@ deploy:
   file:
   - _build/main.pdf
   skip_cleanup: true
-  on:
-    tags: true
