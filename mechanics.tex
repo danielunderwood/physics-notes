@@ -71,35 +71,69 @@ that changes as a force is applied. It is mathematically defined by \cref{eqn: m
 
 \section{Energy}
 
-A quantity of large important in mechanics is the kinetic energy $T$, defined by
-\cref{eqn: kinetic-energy}. Kinetic energy is acquired by applying a force.
+There isn't really any definition of what energy is \cite{feynman_vol1}, but energy in
+an abstract notion is a quantity of the system that is conserved regardless of the
+physical processes that take place. It can also be thought of as an expression of the
+state of a system. The notion of energy as representing the state of a system is used
+to create the energy-based formulations of mechanics examined in
+\cref{ch: lagrangian-mechanics,ch: hamiltonian-mechanics}.
 
-\begin{equation} \label{eqn: kinetic-energy}
-T = \frac{m v^2}{2}
+\subsection{Kinetic}
+
+Kinetic energy is the energy that a body gains from motion. It is defined by
+\cref{eqn: linear-ke} for linear motion or by \cref{eqn: rotational-ke} for simple rotational
+motion.\footnote{In these equations, $a^2 = \vec{a} \cdot \vec{a}$ for vector
+quantities $\vec{a}$. This is especially important to realize when manipulating these
+equations since
+$\left| \frac{d}{dq} a^2 \right| \neq \frac{d}{dq} \left| a^2 \right|$ where
+$\vec{a} = \vec{a}(q)$. This holds for any vector dependency, but ours will typically be
+$q \to t$.}\footnote{Note that rotational motion can be quite complicated and
+\cref{eqn: rotational-ke} is rather limited.}
+
+\begin{equation}
+\label{eqn: linear-ke}
+T = \frac{m v^2}{2} = \frac{p^2}{2m}
 \end{equation}
 
-Another type of energy, often described as potential energy $U$ can be quite confusing.
-The potential energy is associated with the forces present that are trying to change the
-momentum of the particle. A similar concept is the work, defined by \cref{eqn: work},
-which is the change in the energy of a particle as it moved from position $\vec{r}_1$ to
-position $\vec{r}_2$ by a path $\gamma$.
+\begin{equation}
+\label{eqn: rotational-ke}
+T = \frac{I \omega^2}{2} = \frac{L^2}{2 \omega}
+\end{equation}
 
+
+\subsection{Potential and Work}
+By \cref{dvn: work-energy}, we find that work is the change in kinetic energy. Formally,
+work is defined by \cref{eqn: work} where the particle follows a path $\gamma$ from
+$\vec{r}_1$ to $\vec{r}_2$.
 
 \begin{equation} \label{eqn: work}
-\Delta E = W = \int_{\gamma} \vec{F} \cdot \vec{dr}
+W = \int_{\gamma} \vec{F} \cdot \vec{dr}
 \end{equation}
 
-Potential energy can be defined in terms of \cref{eqn: work} when the force is
-conservative ($\nabla \times \vec{F} = 0$) by $U = -W$. Note that in this case
-(and for any line integral of a conservative vector), $\vec{F}$ being conservative makes
-the integral in \cref{eqn: work} depend only on the end positions $\vec{r}_1$ and
-$\vec{r}_2$ and is independent of the path $\gamma$.
+Potential energy is difficult to describe, but is often thought of as a tendency of the
+system to go towards the applied forces. For conservative systems
+($\nabla \times \vec{F} = 0$), it is described by \cref{eqn: force-potential}.
 
+\begin{equation}
+\label{eqn: force-potential}
+\vec{F} = - \nabla U
+\end{equation}
 
+Using the definition of work given \cref{eqn: work} with \cref{eqn: force-potential}, we
+can define
 
-\chapter{Lagrangian Mechanics}
+\begin{align*}
+W &= \int_{\gamma} \vec{F} \cdot \vec{dr} \\
+&= - \int_{\gamma} \nabla U \cdot \vec{dr} \\
+&= - \Delta U
+\end{align*}
 
-\chapter{Hamiltonian Mechanics}
+Interestingly, we can combine this with \cref{dvn: work-energy} to obtain
+$\Delta T = -\Delta U$.
+
+\chapter{Lagrangian Mechanics} \label{ch: lagrangian-mechanics}
+
+\chapter{Hamiltonian Mechanics} \label{ch: hamiltonian-mechanics}
 
 \chapter{Non-inertial Frames}
 
@@ -138,7 +172,7 @@ Adding the $n$ equations together, we obtain
 \sum_{i \neq j} \vec{F}_{ij} + \sum_i \vec{F}_i^{\rm{ext}} = \sum_i \dot{\vec{p}}_i
 \end{equation*}
 
-In the case that the strong law of action and reaction applies, we can use
+In the case that the weak law of action and reaction applies, we can use
 \cref{eqn: newton-third} and the first summation cancels, leaving
 
 \begin{align*}
@@ -155,6 +189,30 @@ $$
 or, the momentum of the system is conserved. Note that this is not general and depends
 on the weak law of action and reaction being satisfied and there being no external forces
 on the particles (or the external forces somehow canceling among the particles).
+
+\section{Conservation of Angular Momentum}
+
+\section{Conservation of Energy}
+
+\section{Work-Energy Theorem} \label{dvn: work-energy}
+
+The constant mass linear motion, the time derivative of the kinetic energy is
+
+\begin{align*}
+\frac{dT}{dt} &= m \vec{v} \cdot \dot{\vec{v}} \\
+&= \vec{F} \cdot \vec{v}
+\end{align*}
+
+If we define work by $W = \int \vec{F} \cdot \vec{dr}$, we have
+
+\begin{align*}
+W &= \int_{\gamma} \vec{F} \cdot \vec{dr} \\
+&= \int_{\gamma} \vec{F} \cdot \vec{v} dt \\
+&= \int_{\gamma} \frac{dT}{dt} \\
+&= \Delta T
+\end{align*}
+
+or, work is the change in kinetic energy.
 
 \section{Euler-Lagrange Equations}
 
