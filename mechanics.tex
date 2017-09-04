@@ -78,41 +78,61 @@ state of a system. The notion of energy as representing the state of a system is
 to create the energy-based formulations of mechanics examined in
 \cref{ch: lagrangian-mechanics,ch: hamiltonian-mechanics}.
 
+\subsection{Work}
+Work is the projection of the infinitesimal force applied on the direction of the displacement
+of a body. Mathematically, work over a path $\gamma$ from $\vec{r}_1$ to $\vec{r}_2$
+is defined by \cref{eqn: work}.
+
+\begin{equation} \label{eqn: work}
+W = \int_{\gamma} \vec{F} \cdot \vec{dr}
+\end{equation}
+
 \subsection{Kinetic}
 
 Kinetic energy is the energy that a body gains from motion. It is defined by
-\cref{eqn: linear-ke} for linear motion or by \cref{eqn: rotational-ke} for simple rotational
-motion.\footnote{In these equations, $a^2 = \vec{a} \cdot \vec{a}$ for vector
+\cref{eqn: linear-ke}.\footnote{In these equations, $a^2 = \vec{a} \cdot \vec{a}$ for vector
 quantities $\vec{a}$. This is especially important to realize when manipulating these
 equations since
 $\left| \frac{d}{dq} a^2 \right| \neq \frac{d}{dq} \left| a^2 \right|$ where
 $\vec{a} = \vec{a}(q)$. This holds for any vector dependency, but ours will typically be
-$q \to t$.}\footnote{Note that rotational motion can be quite complicated and
-\cref{eqn: rotational-ke} is rather limited.}
+$q \to t$.}
 
 \begin{equation}
 \label{eqn: linear-ke}
 T = \frac{m v^2}{2} = \frac{p^2}{2m}
 \end{equation}
 
+Kinetic energy is very closely related to work as work is the force applied to increase velocity.
+The work-energy principle (see \cref{dvn: work-energy}) puts this relation into a concrete form
+as given in \cref{eqn: work-energy}.
+
 \begin{equation}
-\label{eqn: rotational-ke}
-T = \frac{I \omega^2}{2} = \frac{L^2}{2 \omega}
+\label{eqn: work-energy}
+\Delta W = \Delta T
+\end{equation}
+
+\subsection{Potential}
+
+Potential energy has a variety of definitions; it can be thought of as the potential of a body
+to move or as the energy used to assemble the body. It is defined by \cref{eqn: pe-def}.
+There is a notable similarity between this equation and \cref{eqn: work}; this is not terribly
+surprising with the idea of potential energy as the energy (work) needed to assemble the
+body. Note the negative sign, which is a convention that the body does work on the
+universe (or whatever system it is in) in order to be assembled. It should be noted that
+$\gamma$ is fixed by the path taken to assemble the system.
+
+\begin{equation}
+\label{eqn: pe-def}
+U = - \int_{\gamma} \vec{F} \cdot \vec{dr}
 \end{equation}
 
 
-\subsection{Potential and Work}
-By \cref{dvn: work-energy}, we find that work is the change in kinetic energy. Formally,
-work is defined by \cref{eqn: work} where the particle follows a path $\gamma$ from
-$\vec{r}_1$ to $\vec{r}_2$.
-
-\begin{equation} \label{eqn: work}
-W = \int_{\gamma} \vec{F} \cdot \vec{dr}
-\end{equation}
-
-Potential energy is difficult to describe, but is often thought of as a tendency of the
-system to go towards the applied forces. For conservative systems
-($\nabla \times \vec{F} = 0$), it is described by \cref{eqn: force-potential}.
+For conservative systems ($\nabla \times \vec{F} = 0$), potential energy is described by
+\cref{eqn: force-potential}. This can be done because we can unambiguously define a vector
+as the gradient of a scalar if that vector has zero curl.\footnote{This is part of the Helmholtz
+theorem, which is actually much more general in that a vector may be decomposed into the
+sum of the curl of a vector and the gradient of a scalar.} This is a very important point because
+many forces of our interest are conservative.
 
 \begin{equation}
 \label{eqn: force-potential}
@@ -129,7 +149,7 @@ W &= \int_{\gamma} \vec{F} \cdot \vec{dr} \\
 \end{align*}
 
 Interestingly, we can combine this with \cref{dvn: work-energy} to obtain
-$\Delta T = -\Delta U$.
+$\Delta T = -\Delta U$ for the case of a conservative force.
 
 \chapter{Lagrangian Mechanics} \label{ch: lagrangian-mechanics}
 
@@ -194,7 +214,7 @@ on the particles (or the external forces somehow canceling among the particles).
 
 \section{Conservation of Energy}
 
-\section{Work-Energy Theorem} \label{dvn: work-energy}
+\section{Work-Energy Principle} \label{dvn: work-energy}
 
 The constant mass linear motion, the time derivative of the kinetic energy is
 
